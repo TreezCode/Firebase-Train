@@ -15,18 +15,19 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- PERSONAL STYLES -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Moment Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- FONT AWESOME -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
     
     <title>Train Schedule</title>
 </head>
 
 <body>
     <div class="container">
-
         <div class="my-4 p-4 jumbotron">
             <h1 class="text-center">Train Schedule</h1>
             <h3 class="text-center">Choo choo MF!</h3>
@@ -34,7 +35,8 @@
         <div class="schedule shadow">
             <table class="mb-0 table" id="train-table">
                 <div class="p-2 table-head col-md-12">
-                    <h4 class="mb-0 text-center">Current Train Schedule:</h4>
+                    <h4 class="mb-0 text-center current-schedule">Current Train Schedule:</h4>
+                    <h5 class="mb-0 mt-2 text-center current-time">Time: <span id="time"></span></h5>
                 </div>
                 <thead class="my-thead thead">
                     <tr>
@@ -43,6 +45,7 @@
                         <th scope="col" class="text-center">Frequency (min)</th>
                         <th scope="col" class="text-center">Mins Away</th>
                         <th scope="col" class="text-center">Next Arrival</th>
+                        <th scope="col" class="text-center">Remove</th>
                     </tr>
                 </thead>
                 <tbody>

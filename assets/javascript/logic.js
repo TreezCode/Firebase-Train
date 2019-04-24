@@ -17,13 +17,22 @@ var database = firebase.database();
 var dataRef = database.ref();
 var currentTime = moment();
 
+// Functions
+// ===========================================================
+// Display the time to HTML and update every second using setInterval
+var updateTime = () => {
+    setInterval(function() {
+        $("#time").text(moment().format("hh:mm A"));
+    }, 1000);
+}
+updateTime();
+
 // Main Logic
 // ===========================================================
 $(document).ready(function () {
     // Create a button to add trains to schedule
     $("#add-train-btn").on("click", function (event) {
         event.preventDefault();
-
         // Grab user input
         var trainName = $("#train-name-input").val().trim();
         var trainDestination = $("#train-destination-input").val().trim();
@@ -61,7 +70,6 @@ $(document).ready(function () {
             $("#first-train-input").val("");
             $("#train-frequency-input").val("");
         }
-
     })
 
     // Create Firebase event for adding the train data to the database and row to the HTML
@@ -108,10 +116,22 @@ $(document).ready(function () {
             $("<td>").html(trainDest),
             $("<td>").html(trainFreq).addClass("text-center"),
             $("<td>").html(minsAway).addClass("text-center"),
-            $("<td>").text(moment(nextArrival).format("hh:mm A")).addClass("text-center")
+            $("<td>").text(moment(nextArrival).format("hh:mm A")).addClass("text-center"),
+            $("<td>").html("<i class='far fa-trash-alt' id='removeBtn'></i>").addClass("text-center")
         );
 
         // Display the new row to the HTML by appending to the table body
         $("#train-table > tbody").append(newRow)
+    });
+
+    // Click event added to allow user to remove a train from schedule
+    $(document).on("click", "#removeBtn", function() {
+        event.preventDefault();
+        
+        // Get user confirmation before deleting the table row
+        var confirmRemove = confirm("Removing a train is permanent and will delete the train from the system. Are you sure you want to remove this train?")
+        if(confirmRemove) {
+            $(this).closest('tr').remove();
+        }
     });
 });

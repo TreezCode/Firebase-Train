@@ -70,6 +70,16 @@ td {
     box-shadow: 0px 2px 2px #000;
 }
 
+#removeBtn {
+    transition: all 0.25s;
+}
+
+#removeBtn:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    color: #919191
+}
+
 .my-label {
     font-family: 'Saira', sans-serif;
     background: rgb(34, 34, 34);   
@@ -77,8 +87,24 @@ td {
 }
 
 /* Media Queries
-=================================================================== */    
- @media only screen and (max-width: 575px) {
+=================================================================== */  
+@media (max-width: 768px) {
+    .container {
+        max-width: 740px;
+    }
+}
+
+@media (max-width: 676px) {
+    .container {
+        font-size: 80%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    .container {
+        width: 100% !important;
+    }
      
     .jumbotron {
         width: 100%;
@@ -106,7 +132,11 @@ td {
     }
 }
 
-@media only screen and (max-width: 325px) {
+@media only screen and (max-width: 358px) {
+    .container {
+        font-size: 70%;
+    }
+
     .table th,
     .table td {
         padding: 0.3rem;
