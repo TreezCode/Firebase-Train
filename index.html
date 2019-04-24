@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Righteous|Saira:100,200,300,400|Source+Code+Pro:200,400" rel="stylesheet">
     <!-- RESET -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- BOOTSTRAP -->
@@ -21,22 +24,22 @@
 <body>
     <div class="container">
 
-        <div class="mt-4 p-4 jumbotron border border-secondary shadow">
+        <div class="my-4 p-4 jumbotron">
             <h1 class="text-center">Train Schedule</h1>
             <h3 class="text-center">Choo choo MF!</h3>
         </div>
-        <div class="border border-secondary shadow">
+        <div class="schedule shadow">
             <table class="mb-0 table" id="train-table">
                 <div class="p-2 table-head col-md-12">
-                    <h4 class="mb-0">Current Train Schedule:</h4>
+                    <h4 class="mb-0 text-center">Current Train Schedule:</h4>
                 </div>
-                <thead class="thead-dark">
+                <thead class="my-thead thead">
                     <tr>
                         <th scope="col">Train Name</th>
                         <th scope="col">Destination</th>
-                        <th scope="col">Frequency (min)</th>
-                        <th scope="col">Mins Away</th>
-                        <th scope="col">Next Arrival</th>
+                        <th scope="col" class="text-center">Frequency (min)</th>
+                        <th scope="col" class="text-center">Mins Away</th>
+                        <th scope="col" class="text-center">Next Arrival</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,33 +48,33 @@
             </table>
         </div>
 
-        <div class="my-4 border border-secondary shadow">
+        <div class="my-4 shadow">
             <div class="p-2 table-head col-md-12 border-bottom border-secondary">
-                <h4 class="mb-0">Add Train:</h4>
+                <h4 class="mb-0 text-center">Add Train:</h4>
             </div>
             <form class="p-2">
                 <div class="form-group">
-                    <label class="w-100 p-1 text-light my-label" for="formGroupTrainName">Train Name:</label>
-                    <input type="text" class="form-control" id="train-name-input" placeholder="">
+                    <label class="w-100 p-1 my-label" for="formGroupTrainName">Train Name:</label>
+                    <input type="text" class="form-control" id="train-name-input" placeholder="Treez Express">
                 </div>
                 <div class="form-group">
-                    <label class="w-100 p-1 text-light my-label" for="formGroupDestination">Destination:</label>
-                    <input type="text" class="form-control" id="train-destination-input" placeholder="">
+                    <label class="w-100 p-1 my-label" for="formGroupDestination">Destination:</label>
+                    <input type="text" class="form-control" id="train-destination-input" placeholder="Denver Union Station">
                 </div>
                 <div class="form-group">
-                    <label class="w-100 p-1 text-light my-label" for="formGroupFirstTrain">First Train Time (HH:mm - Military Time):</label>
-                    <input type="text" class="form-control" id="first-train-input" placeholder="">
+                    <label class="w-100 p-1 my-label" for="formGroupFirstTrain">First Train Time (HH:mm - Military Time):</label>
+                    <input type="text" class="form-control" id="first-train-input" placeholder="16:20">
                 </div>
                 <div class="form-group">
-                    <label class="w-100 p-1 text-light my-label" for="formGroupFrequency">Frequency (min):</label>
-                    <input type="text" class="form-control" id="train-frequency-input" placeholder="">
+                    <label class="w-100 p-1 my-label" for="formGroupFrequency">Frequency (min):</label>
+                    <input type="text" class="form-control" id="train-frequency-input" placeholder="15">
                 </div>
                 <div>
                     <p class="text-center" id="missing-form"></p>
                 </div>
                 <div class="form-group">
                     <div class="text-center">
-                        <button type="submit" class="m-auto btn btn-success shadow" id="add-train-btn">Submit</button>
+                        <button type="submit" class="m-auto py-1 btn btn-dark shadow" id="add-train-btn">Submit</button>
                     </div>
                 </div>
             </form>
