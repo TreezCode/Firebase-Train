@@ -12,10 +12,21 @@ body {
 =================================================================== */
 .my-navbar {
     background: #252525ea!important;
+    text-align: center;
 }
 
-.nav li a {
+.nav {
+    flex-wrap: nowrap;
+}
+
+.nav a {
     color: #ebebeb;
+    transition: all 0.25s;
+    padding: 0.5em;
+}
+
+.nav a:hover {
+    color: #818181;
 }
 
 
@@ -159,5 +170,9 @@ td {
 
     h3 {
         font-size: 1.75rem;
+    }
+
+    .nav a {
+        font-size: 0.8em;
     }
 }

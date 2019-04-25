@@ -33,6 +33,7 @@ $(document).ready(function () {
     // Create a button to add trains to schedule
     $("#add-train-btn").on("click", function (event) {
         event.preventDefault();
+        
         // Grab user input
         var trainName = $("#train-name-input").val().trim();
         var trainDestination = $("#train-destination-input").val().trim();

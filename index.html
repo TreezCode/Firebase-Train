@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,35 +13,62 @@
     <!-- RESET -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- PERSONAL STYLES -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Moment Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- FONT AWESOME -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
-    
+
     <title>Train Schedule</title>
 </head>
 
 <body>
+    <!-- Navbar
+========================================================================================================= -->
     <nav class="my-navbar navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Account</a>
+                <a class="nav-link active" href="#" data-toggle="modal" data-target="modal-account">Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sign-Up</a>
+                <a class="nav-link" href="#" data-target=""="modal-sign-up">Sign-Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="#" data-target="modal-login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+                <a class="nav-link disabled" href="#" data-target="modal-logout" tabindex="-1" aria-disabled="true">Logout</a>
             </li>
         </ul>
     </nav>
+
+    <!-- Modals
+========================================================================================================= -->
+    <div class="modal fade" id="modal-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content
+========================================================================================================= -->
     <div class="container">
         <div class="my-4 p-4 jumbotron">
             <h1 class="text-center">Train Schedule</h1>
@@ -65,7 +91,7 @@
                     </tr>
                 </thead>
                 <tbody>
-  
+
                 </tbody>
             </table>
         </div>
@@ -84,7 +110,8 @@
                     <input type="text" class="form-control" id="train-destination-input" placeholder="Denver Union Station">
                 </div>
                 <div class="form-group">
-                    <label class="w-100 p-1 my-label" for="formGroupFirstTrain">First Train Time (HH:mm - Military Time):</label>
+                    <label class="w-100 p-1 my-label" for="formGroupFirstTrain">First Train Time (HH:mm - Military
+                        Time):</label>
                     <input type="text" class="form-control" id="first-train-input" placeholder="16:20">
                 </div>
                 <div class="form-group">
@@ -106,11 +133,18 @@
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
     <!-- Bootstrap jQuery & Javascript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <!-- jQuery Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <!-- Personal Javascript -->
     <script src="assets/javascript/logic.js"></script>
 </body>
