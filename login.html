@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <!-- Styles -->
+    <style>
+        body {
+            background: rgb(133, 133, 133);
+        }
+        #firebaseui-auth-container {
+            margin-top: 10em;
+        }
+        #firebaseui-auth-container p {
+            color: white;
+        }
+    </style>
+
+    <!-- Firebase Script -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDvIwsnOcFH0_tMunKqbmIZhFU9GLL-DE4",
+            authDomain: "fir-train-a7367.firebaseapp.com",
+            databaseURL: "https://fir-train-a7367.firebaseio.com",
+            projectId: "fir-train-a7367",
+            storageBucket: "fir-train-a7367.appspot.com",
+            messagingSenderId: "292612024500"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- Initialize sign-in widget from FirebaseUI Web
+    =========================================================== -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.6.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.6.0/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'index.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+            // tosUrl and privacyPolicyUrl accept either url string or a callback
+            // function.
+            // Terms of service url/callback.
+            tosUrl: '<your-tos-url>',
+            // Privacy policy url/callback.
+            privacyPolicyUrl: function () {
+                window.location.assign('<your-privacy-policy-url>');
+            }
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <title>Firebase-Train Login</title>
+</head>
+
+<body>
+    <div id="firebaseui-auth-container"></div>
+</body>
+
+</html>

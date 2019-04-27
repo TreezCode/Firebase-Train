@@ -26,50 +26,44 @@
 
 <body>
     <!-- Navbar
-========================================================================================================= -->
-    <nav class="my-navbar navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="#" data-toggle="modal" data-target="modal-account">Account</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-target=""="modal-sign-up">Sign-Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-target="modal-login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" data-target="modal-logout" tabindex="-1" aria-disabled="true">Logout</a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Modals
-========================================================================================================= -->
-    <div class="modal fade" id="modal-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
+        ========================================================================================================= -->
+        <nav class="my-navbar navbar navbar-expand-lg navbar-dark bg-dark">
+            <span class="justify-self-end" id="display-name"></span>
+            <ul class="ml-auto nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-account">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logout-btn" href="#" data-toggle="modal" data-target="#modal-logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Modals
+            ========================================================================================================= -->
+            <div class="modal fade" id="modal-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Account Information:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div id="account-info"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="m-auto btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <!-- Main Content
-========================================================================================================= -->
-    <div class="container">
+        ========================================================================================================= -->
+        <div class="container">
         <div class="my-4 p-4 jumbotron">
             <h1 class="text-center">Train Schedule</h1>
             <h3 class="text-center">Choo choo MF!</h3>
@@ -78,7 +72,7 @@
             <table class="mb-0 table" id="train-table">
                 <div class="p-2 table-head col-md-12">
                     <h4 class="mb-0 text-center current-schedule">Current Train Schedule:</h4>
-                    <h5 class="mb-0 mt-2 text-center current-time">Time: <span id="time"></span></h5>
+                    <h5 class="mb-0 mt-2 text-center current-time"><span id="time"></span></h5>
                 </div>
                 <thead class="my-thead thead">
                     <tr>
@@ -147,6 +141,7 @@
         integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <!-- Personal Javascript -->
     <script src="assets/javascript/logic.js"></script>
+    <script src="assets/javascript/auth.js"></script>
 </body>
 
 </html>

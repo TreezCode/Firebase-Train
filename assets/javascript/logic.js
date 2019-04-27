@@ -1,4 +1,3 @@
-
 // Initialize Firebase
 // ===========================================================
 var config = {
@@ -21,7 +20,7 @@ var currentTime = moment();
 // ===========================================================
 // Display the time to HTML and update every second using setInterval
 var updateTime = () => {
-    setInterval(function() {
+    setInterval(function () {
         $("#time").text(moment().format("hh:mm A"));
     }, 1000);
 }
@@ -33,7 +32,7 @@ $(document).ready(function () {
     // Create a button to add trains to schedule
     $("#add-train-btn").on("click", function (event) {
         event.preventDefault();
-        
+
         // Grab user input
         var trainName = $("#train-name-input").val().trim();
         var trainDestination = $("#train-destination-input").val().trim();
@@ -85,19 +84,19 @@ $(document).ready(function () {
         // Test / Debug train info
         console.log(trainName);
         console.log(trainDest);
-        console.log(firstTime);
-        console.log(trainFreq);
+        // console.log(firstTime);
+        // console.log(trainFreq);
 
         // Convert the trains first time and subtract 1 year to be sure its before todays date
         var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-        console.log("First Time: " + firstTimeConverted);
+        console.log("First Time: " + moment(firstTimeConverted).format("hh:mm"));
 
         // Log the current time
         console.log("Current Time: " + moment(currentTime).format("hh:mm"));
 
         // Calculate difference between times
         var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
-        console.log("Difference in time: " + timeDiff);
+        console.log("Difference in time: " + moment(timeDiff).format("m") + " min");
 
         // Time apart
         var tRemainder = timeDiff % trainFreq;
@@ -126,13 +125,21 @@ $(document).ready(function () {
     });
 
     // Click event added to allow user to remove a train from schedule
-    $(document).on("click", "#removeBtn", function() {
+    $(document).on("click", "#removeBtn", function () {
         event.preventDefault();
-        
+
         // Get user confirmation before deleting the table row
         var confirmRemove = confirm("Removing a train is permanent and will delete the train from the system. Are you sure you want to remove this train?")
-        if(confirmRemove) {
+        if (confirmRemove) {
             $(this).closest('tr').remove();
         }
+    });
+
+    $(document).on("click", "#logout-btn", function () {
+        firebase.auth().signOut().then(function () {
+            console.log('Signed Out');
+        }, function (error) {
+            console.error('Sign Out Error', error);
+        });
     });
 });
